@@ -17,15 +17,16 @@ lowercase = string.ascii_lowercase
 digits = string.digits
 symbols = string.punctuation
 
-print(CYAN + BOLD + r'''
+def print_title() -> None:
+  print(CYAN + BOLD + r'''
 
-              ░█▀█░█▀█░█▀▀░█▀▀░█░█░█▀█░█▀▄░█▀▄░░░█▀▀░█▀▀░█▀█░█▀▀░█▀▄░█▀█░▀█▀░█▀█░█▀▄
-              ░█▀▀░█▀█░▀▀█░▀▀█░█▄█░█░█░█▀▄░█░█░░░█░█░█▀▀░█░█░█▀▀░█▀▄░█▀█░░█░░█░█░█▀▄
-              ░▀░░░▀░▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀░░░░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀░▀░░▀░░▀▀▀░▀░▀
+                ░█▀█░█▀█░█▀▀░█▀▀░█░█░█▀█░█▀▄░█▀▄░░░█▀▀░█▀▀░█▀█░█▀▀░█▀▄░█▀█░▀█▀░█▀█░█▀▄
+                ░█▀▀░█▀█░▀▀█░▀▀█░█▄█░█░█░█▀▄░█░█░░░█░█░█▀▀░█░█░█▀▀░█▀▄░█▀█░░█░░█░█░█▀▄
+                ░▀░░░▀░▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀░░░░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀░▀░░▀░░▀▀▀░▀░▀
 
-''' + RESET)
+  ''' + RESET)
 
-def instructions():
+def instructions() -> None:
     print(f"{YELLOW}Instructions:{RESET}")
     print(f"{YELLOW}1. Enter the desired password length by typing a number greater than zero.{RESET}")
     print(f"{YELLOW}2. Select at least one character sets to include in the password by typing 'yes' or 'no'{RESET}")
@@ -40,7 +41,7 @@ def get_inputs() -> tuple[int, bool, bool, bool, bool]:
             if response in ['yes', 'no']:
                 return response == 'yes'
             else:
-                print("Invalid input, please type 'yes' or 'no'.")
+                print(f"{RED}{BOLD}Invalid input, please type 'yes' or 'no'.{RESET}\n")
 
     try:
         length = int(input("Enter the desired password length: "))
@@ -88,7 +89,7 @@ def get_all_characters(include_uppercase: bool, include_lowercase: bool, include
     return all_characters
 
 # Generate password
-def main():
+def main() -> None:
     length, include_uppercase, include_lowercase, include_digits, include_symbols = get_inputs()
 
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -100,14 +101,22 @@ def main():
 
     # Generate password
     password = ''.join(random.sample(all_characters, length))
-    print(f"Generated password: {MAGENTA + BOLD}{password}{RESET}")
+    print(f"Generated password: {MAGENTA + BOLD}{password}{RESET}\n")
 
 if __name__ == '__main__':
     while True:
+        print_title()
         instructions()
         main()
 
-        response = input(f"{YELLOW}Do you want to generate another password? (yes/no): {RESET}").strip().lower()
-        if response != 'yes':
-            break
-        os.system('cls' if os.name == 'nt' else 'clear')
+        while True:
+            response = input(f"{YELLOW}Do you want to generate another password? (yes/no): {RESET}").strip().lower()
+            if response in ['yes', 'no']:
+                if response == 'no':
+                    print(f"{GREEN}{BOLD}Thank you for using the password generator!{RESET}")
+                    exit()
+                else:
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    break
+            else:
+                print(f"{RED}Invalid input, please type 'yes' or 'no'.{RESET}\n")
