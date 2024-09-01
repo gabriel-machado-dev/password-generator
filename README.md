@@ -11,13 +11,13 @@ Este é um gerador de senhas simples escrito em Python. Ele permite que você ge
 
 ## Requisitos
 
-Python 3.x
+Python 3.x🐍
 
 ## Bibliotecas Usadas
 
-random: Esta biblioteca é usada para gerar números aleatórios e selecionar caracteres aleatórios para a senha.
-string: Esta biblioteca fornece constantes para conjuntos de caracteres, como letras maiúsculas, letras minúsculas, dígitos e símbolos.
-os: Esta biblioteca é usada para executar comandos do sistema, como limpar a tela do terminal.
+- random: Esta biblioteca é usada para gerar números aleatórios e selecionar caracteres aleatórios para a senha.
+- string: Esta biblioteca fornece constantes para conjuntos de caracteres, como letras maiúsculas, letras minúsculas, dígitos e símbolos.
+- os: Esta biblioteca é usada para executar comandos do sistema, como limpar a tela do terminal.
 
 ## Instalação
 
