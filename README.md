@@ -9,9 +9,12 @@ Este é um gerador de senhas simples escrito em Python. Ele permite que você ge
 - Interface de linha de comando simples e interativa.
 - Mensagens coloridas para melhor experiência do usuário.
 
-## Requisitos
+## Configuração para Usuários 🔧
 
-Python 3.x🐍
+### Requisitos
+
+- Python 3.x🐍
+- Biblioteca `customtkinter`
 
 ## Bibliotecas Usadas
 
@@ -19,25 +22,36 @@ Python 3.x🐍
 - string: Esta biblioteca fornece constantes para conjuntos de caracteres, como letras maiúsculas, letras minúsculas, dígitos e símbolos.
 - os: Esta biblioteca é usada para executar comandos do sistema, como limpar a tela do terminal.
 
-## Instalação
+### Instruções para Execução ▶️
 
-1. Clone o repositório ou baixe os arquivos
-2. Navegue até o diretório do projeto.
+## Configuração para Desenvolvedores 🔧
 
-## Uso
+### Instalação das Dependências
 
-Execute o script `app.py`:
+1. Clone o repositório:
 
 ```bash
-python app.py
+git clone https://github.com/gabriel-machado-dev/bitcoin-tracker
+```
+2. Configure um ambiente virtual (opcional, mas recomendado):
+
+```bash
+python -m venv venv
+source venv/bin/activate  # Para macOS/Linux
+.\venv\Scripts\activate   # Para Windows
 ```
 
-Siga as instruções na tela para gerar uma senha.
+3. Instale as dependências usando o arquivo `requirements.txt`:
 
-Contribuição
+```bash
+pip install -r requirements.txt
+```
+4. Execute o script `app.py`:
 
-Sinta-se à vontade para contribuir com este projeto. Você pode abrir uma issue ou enviar um pull request com melhorias e correções
+```bash
+ python app.py
+```
 
-Licença
+## Licença 📝
 
-Este projeto está licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+Este projeto está licenciado sob a Licença MIT. Consulte o arquivo LICENSE para mais detalhes.
